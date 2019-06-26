@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: "asia.gcr.io/key-shine-243509/skcc-2016-user:v2"
+        image: "asia.gcr.io/key-shine-243509/skcc-2016-user"
         env:
         - name: "PORT"
           value: "3006"

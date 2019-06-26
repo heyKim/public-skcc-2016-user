@@ -15,29 +15,29 @@ steps:
 # Cloud Storage에 컨테이너가 아닌 아티팩트를 저장
 # 배포 리소스를 업데이트
 # 배포 리소스를 업데이트
-- id: 'Deploy'
-  name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/user-deployment', 'user=asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+# - id: 'Deploy'
+#   name: 'gcr.io/cloud-builders/kubectl'
+#   args: ['set', 'image', 'deployment/user-deployment', 'user=asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID']
+#   env:
+#   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
   # - 'PORT=3006'
   # - 'dbhost=172.17.240.3'
   # - 'database=2016'
   # - 'dbusername=root'
   # - 'dbpassword=skcc'
 # Service Update
-# - id: Deployment
-#   name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', 'user-deployment.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
-#   - 'PORT=3006'
-#   - 'dbhost=35.244.25.10'
-#   - 'database=2016'
-#   - 'dbusername=root'
-#   - 'dbpassword=skcc'
+- id: Deployment
+  name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'user-deployment.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'PORT=3006'
+  - 'dbhost=35.244.25.10'
+  - 'database=2016'
+  - 'dbusername=root'
+  - 'dbpassword=skcc'
 # Service Update
 - id: Service
   name: 'gcr.io/cloud-builders/kubectl'
