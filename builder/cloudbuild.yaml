@@ -1,16 +1,16 @@
 steps:
-# # Use git clone
-# - id: Git clone
-#   name: 'gcr.io/cloud-builders/git'
-#   args: ['clone', 'https://github.com/heyKim/public-skcc-2016-user']
-# # Image Build
-# - id: 'image build'
-#   name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID', '.']
-# ### Image Push
-# - id: 'image push'
-#   name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID']
+# Use git clone
+- id: Git clone
+  name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/heyKim/public-skcc-2016-user']
+# Image Build
+- id: 'image build'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID', '.']
+### Image Push
+- id: 'image push'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia.gcr.io/key-shine-243509/skcc-2016-user:$REVISION_ID']
 # Save Artifacts 
 # Cloud Storage에 컨테이너가 아닌 아티팩트를 저장
 # 배포 리소스를 업데이트
