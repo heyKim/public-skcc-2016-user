@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deployment
+spec:
+  selector:
+    matchLabels:
+      app: metrics
+      department: skcc
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: metrics
+        department: skcc
+    spec:
+      containers:
+      - name: user
+        image: "asia.gcr.io/key-shine-243509/skcc-2016-user:v1"
+        env:
+        - name: "PORT"
+          value: "3006"
+        - name: "database"
+          value: "2016"
+        - name: "dbusername"
+          value: "root"
+        - name: "dbhost"
+          value: "172.17.240.3"
+        - name: "dbpassword"
+          value: "skcc"

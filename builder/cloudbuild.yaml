@@ -1,0 +1,33 @@
+steps:
+# Use git clone
+- id: Git clone
+  name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/heyKim/public-skcc-2016-user']
+# Image Build
+- id: 'image build'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia.gcr.io/key-shine-243509/skcc-2016-user', '.']
+  timeout: 500s
+### Image Push
+- id: 'image push'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia.gcr.io/key-shine-243509/skcc-2016-user']
+# Save Artifacts 
+# Cloud Storage에 컨테이너가 아닌 아티팩트를 저장(??)
+# 배포 리소스를 업데이트
+- id: 'Deploy'
+  name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/user-deployment', 'user=asia.gcr.io/key-shine-243509/skcc-2016-user']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  # Service Update
+- id: Service
+  name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'user-service.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+# timeout: 660s 
+# 빌드된 이미지를 저장하도록 image 필드 설정
+images: ['asia.r.io/key-shine-243509/skcc-2016-user']
