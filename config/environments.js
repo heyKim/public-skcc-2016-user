@@ -14,16 +14,11 @@ const environments = {
 
     production: {
       mysql: {
-        // username : process.env.dbusername,
-        // password : process.env.dbpassword,
-        // database : process.env.database,
-        // host : process.env.dbhost,
-        // port : process.env.port
-        username : 'root',
-        password : 'skcc',
-        database : '2016',
-        host : '172.17.240.3',
-        port : '3006'
+        username : process.env.dbusername,
+        password : process.env.dbpassword,
+        database : process.env.database,
+        host : process.env.dbhost,
+        port : process.env.port
       }
     }
 }
