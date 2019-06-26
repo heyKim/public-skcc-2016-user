@@ -18,7 +18,7 @@ spec:
       - name: user
         image: "asia.gcr.io/key-shine-243509/skcc-2016-user"
         env:
-        - name: "PORT"
+        - name: "port"
           value: "3006"
         - name: "database"
           value: "2016"
