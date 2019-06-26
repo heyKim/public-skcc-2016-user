@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: "asia.gcr.io/key-shine-243509/skcc-2016-user:latest"
+        image: "asia.gcr.io/key-shine-243509/skcc-2016-user:v1"
         env:
         - name: "PORT"
           value: "3006"
@@ -25,6 +25,6 @@ spec:
         - name: "dbusername"
           value: "root"
         - name: "dbhost"
-          value: "172.17.240.3"
+          value: "35.244.25.10"
         - name: "dbpassword"
           value: "skcc"
