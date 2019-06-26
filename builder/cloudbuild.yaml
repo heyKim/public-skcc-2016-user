@@ -28,6 +28,5 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
-# timeout: 660s 
 # 빌드된 이미지를 저장하도록 image 필드 설정
 images: ['asia.r.io/key-shine-243509/skcc-2016-user']
