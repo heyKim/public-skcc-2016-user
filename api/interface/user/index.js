@@ -8,5 +8,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/dupleCheck/:userId', controller.dupleCheck);
 router.post('/', controller.create);
+router.get('/', (req,res) => { res.send('Hello User');})
 
 module.exports = router;
