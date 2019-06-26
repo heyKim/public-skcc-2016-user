@@ -6,8 +6,9 @@ const controller = require('./user.controller');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
+router.get('/', (req,res) => { res.send('Hello User');})
 router.get('/dupleCheck/:userId', controller.dupleCheck);
 router.post('/', controller.create);
-router.get('/', (req,res) => { res.send('Hello User');})
+
 
 module.exports = router;
