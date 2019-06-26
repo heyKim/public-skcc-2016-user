@@ -28,3 +28,5 @@ spec:
           value: "35.244.25.10"
         - name: "dbpassword"
           value: "skcc"
+        - name: "node_env"
+          value: "production"
